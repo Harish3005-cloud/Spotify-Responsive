@@ -51,8 +51,8 @@ nav {
     border: 2px solid rgba(120, 118, 118, 0.711);
     background-color: white;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 70%;
+    transform: translateX(-70%);
 }
 
 .search input {
