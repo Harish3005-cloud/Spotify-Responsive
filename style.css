@@ -5,12 +5,13 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Prevents elements from overflowing */
+    box-sizing: border-box;
 }
 
 body {
-    background-color: #000000d0;
+    background: linear-gradient(135deg, #1c1c1c, #000000);
     font-family: "Varela Round", sans-serif;
+    color: white;
 }
 
 /* Navbar Styling */
@@ -18,7 +19,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 10px 20px;
     background-color: rgb(0, 0, 0);
     height: 65px;
     color: white;
@@ -45,7 +46,7 @@ nav {
     border-radius: 55px;
     padding: 5px 10px;
     height: 50px;
-    width: 45vw; /* Adjusted for better fit */
+    width: 50vw;
     max-width: 600px;
     border: 2px solid rgba(120, 118, 118, 0.711);
     background-color: white;
@@ -64,7 +65,6 @@ nav {
     background: transparent;
 }
 
-/* Search Icon */
 .search i {
     font-size: 20px;
     cursor: pointer;
@@ -99,14 +99,46 @@ nav a:hover {
     color: gainsboro;
 }
 
+/* Responsive Navbar */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background-color: black;
+        padding: 10px;
+        text-align: center;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+    
+    nav ul li {
+        padding: 10px 0;
+    }
+}
+
 /* Main Content */
 .container {
     min-height: 72vh;
     background-color: black;
     color: white;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     width: 80%;
     margin: 23px auto;
     border-radius: 12px;
@@ -114,6 +146,52 @@ nav a:hover {
     background-image: url('images/bg.jpg');
     background-size: cover;
     background-position: center;
+}
+
+/* Left-Side Song List */
+.songItemContainer {
+    margin-top: 50px;
+    width: 40%;
+    text-align: left;
+}
+
+.songItem {
+    height: 69px;
+    display: flex;
+    background-color: white;
+    color: black;
+    width: 45vh;
+    margin: 25px 0;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 15px;
+    padding: 10px;
+    font-weight: bolder;
+    
+}
+
+
+.songItem img {
+    width: 60px;
+    margin-left: 15px;
+    border-radius: 15px;
+}
+
+.time {
+    margin-left: auto;
+}
+
+.time i {
+    cursor: pointer;
+}
+
+/* Song Banner */
+.songBanner {
+    width: 55%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
 }
 
 /* Bottom Player */
@@ -142,83 +220,19 @@ nav a:hover {
     cursor: pointer;
 }
 
-/* Song List */
-.songItemContainer {
-    margin-top: 50px;
-    width: 90%; /* Wider song list */
-}
-
-.songItem {
-    height: 60px; /* Increased height */
-    display: flex;
-    background-color: white;
-    color: black;
-    width: 100%; /* Now takes full width */
-    margin: 12px 0;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 20px;
-    padding: 10px;
-}
-
-.songItem img {
-    width: 50px; /* Slightly bigger image */
-    margin: 0 15px;
-    border-radius: 15px;
-}
-
-.time {
-    margin: 0 20px;
-}
-
-.time i {
-    cursor: pointer;
-}
-
-/* Song Info */
-.songInfo {
-    position: absolute;
-    left: 10vw;
-}
-
-/* Responsive Design */
+/* Responsive Adjustments */
 @media only screen and (max-width: 1100px) {
-    body {
-        background-color: rgba(0, 0, 0, 0);
-    }
-
-    /* Stack Navbar Items */
-    nav {
-        flex-direction: column;
-        height: auto;
-        padding: 10px;
-    }
-
-    nav ul {
-        flex-direction: row;
-        justify-content: center;
-        width: 100%;
-    }
-
-    /* Center the Search Bar */
-    .search {
-        width: 80vw; /* Make search bar wider for smaller screens */
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    /* Adjust Container */
     .container {
         width: 90%;
+        flex-direction: column;
+        align-items: center;
     }
-
-    /* Song List */
     .songItemContainer {
         width: 100%;
+        text-align: left;
     }
-
-    .songItem {
+    .songBanner {
         width: 100%;
-        height: 55px;
+        height: 350px;
     }
 }
